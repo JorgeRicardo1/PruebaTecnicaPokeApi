@@ -1,24 +1,22 @@
 <?php
 
-    // $url = 'https://pokeapi.co/api/v2/pokemon/2/';
-    $limite = 30;
-    $url = 'https://pokeapi.co/api/v2/pokemon?limit='.$limite.'&offset=0';
-    $data = file_get_contents($url);
-    $json = json_decode($data);
-    
-    // echo '<img src="'.$json->sprites->front_default.'" witdth="200"></img>';
+    function getData(){
+        $url = 'https://pokeapi.co/api/v2/pokemon?limit=150&offset=0';
+        $data = file_get_contents($url);
+        $json = json_decode($data);
+        return $json;
+    }
 
-
-    // print_r($json->results[0]->name);
-
-    function renderPokemons($limite)
+    function renderPokemons($limite, $datos)
     {
-        global $url, $data, $json;
-
+        
         for ($i = 0; $i < $limite; $i++){
             // echo $json->results[$i]->name;
-            echo '<div class="nombre_pokemon">'.$json->results[$i]->name.'</div>';
+            echo '<div class="nombre_pokemon">'.$datos->results[$i]->name.'</div>';
         }
     }
+
+    $datos = getData();
+    
     
 ?>

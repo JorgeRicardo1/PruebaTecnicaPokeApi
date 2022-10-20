@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PokeApi prueba Tecnica</title>
     <!-- style -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="container">
@@ -18,8 +18,9 @@
                 <li><a href="">Loguearse</a></li>
                 <li><a href="">Desloguearse</a></li>
             </ul>
-
-            <?php renderPokemons(30)?>
+        </div>
+        <div class="container_nombre">
+            <?php renderPokemons(150, $datos)?>
         </div>
     </div>
 </body>
