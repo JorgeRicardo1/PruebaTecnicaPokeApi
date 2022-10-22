@@ -1,27 +1,34 @@
-<?php include 'conexionApi.php'; ?>
+<?php
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PokeApi prueba Tecnica</title>
-    <!-- style -->
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <div class="container">
-        <div class="navBar">
-            <ul>
-                <li><a href="">Registrarse</a></li>
-                <li><a href="">Loguearse</a></li>
-                <li><a href="">Desloguearse</a></li>
-            </ul>
-        </div>
-        <div class="container_nombre">
-            <?php renderPokemons(150, $datos)?>
-        </div>
-    </div>
-</body>
-</html>
+include_once 'includes/user.php';
+include_once 'includes/user_session.php';
+
+$userSession = new UserSession();
+$user = new User();
+// $db = new DB();
+// $db->connect();
+
+if(isset($_SESSION['user'])){
+    echo "hay sesion";
+    $user->setUser($userSession->getCurrentUser());
+    include_once 'vistas/home.php';
+}else if(isset($_POST['username']) && isset($_POST['password'])){
+    // echo "Validacion de login";
+    $userForm = $_POST['username'];
+    $passForm = $_POST['password'];
+
+    if ($user->userExists($userForm, $passForm)){
+        echo "usuario validado";
+        $userSession->setCurrentUser($userForm);
+        $user->setUser($userForm);
+        include_once 'vistas/home.php';
+    }else {
+        $errorLogin = "nombre de usuario y/o password incorrecto";
+        include_once 'vistas/home.php';
+    }
+}else{
+    echo "login";
+    include_once 'vistas/home.php';
+}
+
+?>

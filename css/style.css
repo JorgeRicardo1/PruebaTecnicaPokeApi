@@ -1,6 +1,14 @@
 body{
     padding: 0;
-    
+}
+
+ul{
+    text-decoration: none;
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
 }
 
 .container_nombre{
@@ -12,10 +20,10 @@ body{
 }
 
 .nombre_pokemon{
-    background:#FF813E;
+    background:#4ac720;
     font-weight:bold; 
     padding:15px; 
-    border:3px solid #B34F19; 
+    border:3px solid #1e800d; 
     text-align:center; 
     font-size:22px;
     border-radius:10px
