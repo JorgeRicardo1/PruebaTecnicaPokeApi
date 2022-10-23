@@ -26,6 +26,14 @@
         }
     }
 
+    function renderHabilidades($pokemon){
+        $numHabilidades = sizeof($pokemon->abilities);
+        for ($i = 0; $i < $numHabilidades; $i++){
+            $habilidad = $pokemon->abilities[$i]->ability->name;
+            echo "<div class=habilidad>$habilidad</div>";
+        }
+    }
+
     $datos = getAllData();
     
     

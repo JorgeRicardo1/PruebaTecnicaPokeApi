@@ -1,5 +1,18 @@
 <?php
-    include "../includes/conexionApi.php"
+    include "../includes/conexionApi.php";
+    include "../includes/user.php";
+    include "../includes/user_session.php";
+
+    $userSession = new UserSession();
+    $user = new User();
+    
+    $name = $_GET["name"];
+    $pokemon = getPokemon($name);
+    $imagenPokemon = '<img src="'. $pokemon->sprites->front_default.'">';
+
+    if(!isset($_SESSION['user'])){
+        header ("Location: http://localhost/ejercicios/pruebatecnica/");
+    }
 ?>
 
 <!DOCTYPE html>
@@ -11,16 +24,16 @@
     <title>Habilidades</title>
 </head>
 <body>
-    <?php
-        if(isset($_GET["name"])){
-            
-            $name = $_GET["name"];
-            $pokemon = getPokemon($name);
-            echo '<img src="'. $pokemon->sprites->front_default.'">';
-            
-        }
-        
-    ?>
+    <?php //print_r ($pokemon->abilities[1]->ability->name); ?>
+    <div class="container">
+        <div class="imagen_pokemon">
+            <?php echo $imagenPokemon; ?>
+        </div>
+        <div class="habilidades">
+            <?php renderHabilidades($pokemon); ?>
+        </div>
+    </div>
+    <a href="http://localhost/ejercicios/pruebatecnica/">Volver</a>
     
 </body>
 </html>
