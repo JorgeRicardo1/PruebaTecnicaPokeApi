@@ -15,8 +15,8 @@
 
             try{
                 $query = $user->connect()->query("INSERT INTO infologin(username,`password`)VALUES('$username','$password')");
-                echo "Se añadio exitosamente";
-                // header("location: http://localhost/ejercicios/pruebaTecnica/index.php");
+                echo "Se añadio exitosamente <br/>";
+                echo '<a href="http://localhost/ejercicios/pruebatecnica/">Volver</a>';
             }catch(PDOException $e){
                 print_r("Error connection " . $e->getMessage());
             }
