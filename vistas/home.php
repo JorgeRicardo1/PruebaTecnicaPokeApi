@@ -23,17 +23,18 @@
     <div class="container">
         <div class="navBar">
             <ul>
-                <li><a href="">Registrarse</a></li>
+                <li><a href="vistas/singup.php">Registrarse</a></li>
                 <li><a href="vistas/login.php">Loguearse</a></li>
-                <li><a href="includes/logout.php"">Desloguearse</a></li>
+                <li><a href="includes/logout.php">Desloguearse</a></li>
             </ul>
         </div>
         <div class="container_nombre">
             <?php 
-                renderPokemons(10, $datos);
+                renderPokemons(150, $datos);
             ?>
 
         </div>
     </div>
 </body>
+
 </html>
