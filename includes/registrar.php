@@ -6,6 +6,7 @@
         // echo "Estamos registrando";
         if(empty($_POST["username"])){
             echo "Por favor llene todos los datos";
+            echo '<a href="http://localhost/ejercicios/pruebatecnica/">Volver</a>';
         }else{
 
             $user = new User();

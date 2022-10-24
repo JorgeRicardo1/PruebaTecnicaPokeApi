@@ -23,12 +23,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Habilidades</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    <?php //print_r ($pokemon->abilities[1]->ability->name); ?>
     <div class="container">
         <div class="row">
             <div class="col">
+                <h4><?php echo $pokemon->name; ?></h4>
                 <?php echo $imagenPokemon; ?>
             </div>
 
